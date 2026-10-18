@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+
+<html class="" dir="rtl" lang="he"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>מסך נגן ראשי - Now Playing</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Rubik:wght@500;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Rubik:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-primary": "#00363d",
+            "surface-tint": "#00daf3",
+            "on-secondary-container": "#c0acff",
+            "outline-variant": "#3b494c",
+            "on-primary-container": "#00626e",
+            "on-primary-fixed": "#001f24",
+            "tertiary-container": "#5be9ad",
+            "surface-container": "#1b1f2a",
+            "surface-container-highest": "#313540",
+            "on-tertiary": "#003824",
+            "on-secondary-fixed": "#20005f",
+            "inverse-on-surface": "#2c303b",
+            "primary": "#c3f5ff",
+            "inverse-primary": "#006875",
+            "surface-container-high": "#262a34",
+            "on-error-container": "#ffdad6",
+            "on-error": "#690005",
+            "tertiary-fixed": "#6ffbbe",
+            "on-tertiary-fixed": "#002113",
+            "error": "#ffb4ab",
+            "surface-bright": "#353944",
+            "error-container": "#93000a",
+            "on-secondary": "#370096",
+            "on-secondary-fixed-variant": "#4f00d0",
+            "secondary-fixed-dim": "#cdbdff",
+            "inverse-surface": "#dfe2f0",
+            "secondary-fixed": "#e8deff",
+            "primary-fixed": "#9cf0ff",
+            "tertiary": "#a8ffd2",
+            "secondary-container": "#5203d5",
+            "surface-dim": "#0f131d",
+            "secondary": "#cdbdff",
+            "on-primary-fixed-variant": "#004f58",
+            "background": "#0f131d",
+            "primary-fixed-dim": "#00daf3",
+            "surface-container-lowest": "#0a0e18",
+            "on-tertiary-container": "#006645",
+            "primary-container": "#00e5ff",
+            "on-surface-variant": "#bac9cc",
+            "on-surface": "#dfe2f0",
+            "on-background": "#dfe2f0",
+            "outline": "#849396",
+            "surface-container-low": "#171b26",
+            "surface-variant": "#313540",
+            "tertiary-fixed-dim": "#4edea3",
+            "on-tertiary-fixed-variant": "#005236",
+            "surface": "#0f131d"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin": "1rem",
+            "space-lg": "1.5rem",
+            "margin-desktop": "2.5rem",
+            "gutter": "1rem",
+            "space-xl": "2.5rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "gutter-desktop": "1.5rem",
+            "space-xs": "0.25rem"
+          },
+          "fontFamily": {
+            "body-md": ["Inter"],
+            "technical-data": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-sm": ["Rubik"],
+            "headline-lg": ["Rubik"],
+            "headline-xl-mobile": ["Rubik"],
+            "body-sm": ["Inter"],
+            "label-sm": ["Inter"],
+            "label-md": ["Inter"],
+            "headline-xl": ["Rubik"]
+          },
+          "fontSize": {
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "technical-data": ["10px", { "lineHeight": "12px", "letterSpacing": "0.08em", "fontWeight": "700" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "label-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "headline-xl": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .neon-glow-cyan {
+      box-shadow: 0 0 24px rgba(0, 229, 255, 0.28), 0 0 6px rgba(0, 229, 255, 0.55);
+    }
+    .neon-glow-art {
+      box-shadow: 0 16px 40px -10px rgba(0, 229, 255, 0.25), 0 0 1px 1px rgba(255, 255, 255, 0.12);
+    }
+    .hairline-glass {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.01) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    /* Hide scrollbar for neat horizontal scroll */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased select-none overflow-x-hidden min-h-screen relative font-body-md" style="background: linear-gradient(180deg, #f8fafc 0%, #eef2f6 50%, #f1f5f9 100%); color: #0f172a;">
+<!-- Android 8.0+ / API 26+ Custom Local Wallpaper Container with 55% Tint -->
+<div class="fixed inset-0 z-0 pointer-events-none overflow-hidden"><div class="absolute inset-0 bg-gradient-to-br from-slate-100/80 via-cyan-50/40 to-slate-200/60"></div><div class="absolute inset-0 bg-white/40 backdrop-blur-3xl"></div></div>
+<!-- App Scaffold / TopAppBar (JSON Anchor Translation) -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-space-md h-14 bg-surface/85 backdrop-blur-md dark:bg-surface/85 border-b border-outline-variant/30 dark:border-outline-variant/30 shadow-none" style="background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(226, 232, 240, 0.9); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);"><button class="flex items-center gap-space-xs text-sky-700 active:scale-95 transition-transform duration-150 hover:bg-slate-200/60 p-1.5 rounded-lg" title="צפה בתורים"><span class="material-symbols-outlined text-sky-600 text-xl" data-icon="expand_more">expand_more</span><span class="font-technical-data text-technical-data font-bold text-sky-700 uppercase">תור 1 / 5</span></button><div class="flex flex-col items-center justify-center max-w-[55%] text-center"><span class="font-headline-sm text-headline-sm text-slate-900 truncate font-bold w-full">Random Access Memories</span><div class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-sky-500 animate-pulse"></span><span class="font-label-sm text-label-sm text-slate-500 truncate font-medium">Daft Punk • Lossless FLAC</span></div></div><div class="flex items-center gap-1"><button class="p-2 rounded-lg text-slate-700 hover:bg-slate-200/60 active:scale-95 transition-transform duration-150" title="אקולייזר גרפי"><span class="material-symbols-outlined text-xl" data-icon="equalizer">equalizer</span></button><button class="p-2 rounded-lg text-slate-500 hover:text-slate-900 hover:bg-slate-200/60 active:scale-95 transition-transform duration-150" title="הגדרות מתקדמות"><span class="material-symbols-outlined text-xl" data-icon="tune">tune</span></button></div></header>
+<!-- Main Canvas Content Deck (with padding for fixed TopBar and BottomBar) -->
+<main class="relative z-10 pt-16 pb-24 px-space-md max-w-lg mx-auto flex flex-col items-center min-h-screen justify-between">
+<!-- Custom Background & Audio Telemetry Indicator Banner (API 26 Storage Access Framework) -->
+<section class="w-full mt-2 mb-3 flex items-center justify-between px-space-sm py-1.5 rounded-xl border border-slate-200/80 bg-white/80 backdrop-blur-md shadow-sm"><div class="flex items-center gap-2 text-slate-700"><span class="material-symbols-outlined text-base text-sky-600" data-icon="light_mode">light_mode</span><div class="flex flex-col text-right"><div class="flex items-center gap-1.5"><span class="font-label-sm text-label-sm text-slate-800 font-semibold">מצב בהיר פעיל • Light Theme</span><span class="font-technical-data text-technical-data text-sky-700 uppercase px-1.5 py-0.5 rounded bg-sky-50 border border-sky-200 font-bold">Active Clean</span></div><div class="flex items-center gap-1 mt-0.5"><span class="w-2.5 h-2.5 rounded-full border border-slate-300 shadow-sm" style="background: #0284c7;" title="Royal Blue"></span><span class="w-2.5 h-2.5 rounded-full border border-slate-300 shadow-sm" style="background: #06b6d4;" title="Cyan"></span><span class="w-2.5 h-2.5 rounded-full border border-slate-300 shadow-sm" style="background: #8b5cf6;" title="Violet"></span><span class="w-2.5 h-2.5 rounded-full border border-slate-300 shadow-sm" style="background: #10b981;" title="Mint"></span><span class="font-technical-data text-technical-data text-slate-500 mr-1">FLAC Direct Pure Stream</span></div></div></div><div class="flex items-center gap-2"><span class="font-technical-data text-technical-data px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200 font-bold">API 26+ DIRECT</span><button class="text-slate-500 hover:text-slate-900 text-xs p-1 rounded-md hover:bg-slate-100" title="שנה רקע"><span class="material-symbols-outlined text-sm" data-icon="wallpaper">wallpaper</span></button></div></section>
+<!-- Album Artwork Deck (Glassmorphic 300x300 card with badges) -->
+<section class="relative w-full flex flex-col items-center my-auto py-2"><div class="relative w-[290px] h-[290px] sm:w-[320px] sm:h-[320px] rounded-2xl p-1 bg-white border border-slate-200/80 shadow-xl"><div class="w-full h-full rounded-2xl overflow-hidden relative bg-slate-100"><img alt="Random Access Memories Artwork" class="w-full h-full object-cover rounded-2xl transform transition-transform duration-700 hover:scale-105" data-alt="Modern high fidelity album cover for Daft Punk synthwave electro music with twin chrome futuristic helmets gleaming under dark obsidian neon lights with sharp cyan and ultraviolet laser reflections against pure deep black space." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTaZbXc8ycpfZjsVme2ydOlCQ2lKKtyVg_1Kyu36JPRXU0t5qH5s5IiIXB4vb8sA0ur_bA0u__UDMUgSeTOMeLWqd1vEEzpe9vTbxHC1yqA6934l2wn_nVH6FWDZIbmm-3IFqm1YzU50c2eWU36PMvsAj-izoGvhW0lfgM-M98RQLVoJTWhmWTj0rI5BwLyXGpIgYOVvYOGz_ijQFgQVVItUu4cpZ1KjW6j1-PinxHB3tMqncj-zdL"/><div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20 pointer-events-none"></div><div class="absolute top-3 right-3 flex items-center gap-1 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full border border-slate-200 shadow-sm"><span class="w-1.5 h-1.5 rounded-full bg-sky-600 animate-ping"></span><span class="font-label-sm text-label-sm text-slate-800 font-semibold">תור 1 פעיל</span></div><div class="absolute top-3 left-3 bg-white/90 backdrop-blur-md border border-slate-200 px-2.5 py-1 rounded-full flex items-center gap-1 shadow-sm"><span class="material-symbols-outlined text-xs text-sky-600" data-icon="graphic_eq">graphic_eq</span><span class="font-technical-data text-technical-data text-slate-800 font-bold tracking-wider">FLAC 24-bit / 96kHz</span></div><div class="absolute bottom-3 right-3 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-slate-200 flex items-center gap-1.5 shadow-sm"><span class="material-symbols-outlined text-xs text-sky-600" data-icon="photo_camera">photo_camera</span><span class="font-technical-data text-technical-data text-slate-700 font-semibold">רקע מותאם אישית</span></div><div class="absolute bottom-3 left-3 flex items-end gap-1 h-4 px-2 py-1 bg-white/90 rounded-md backdrop-blur-sm border border-slate-200 shadow-sm"><div class="w-1 bg-sky-600 h-full animate-bounce rounded-full"></div><div class="w-1 bg-sky-500 h-2/3 animate-pulse rounded-full"></div><div class="w-1 bg-sky-600 h-4/5 animate-bounce rounded-full" style="animation-delay: 150ms;"></div></div></div></div><div class="flex items-center justify-center gap-space-sm mt-4 w-full flex-wrap"><button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-sky-200 bg-sky-50/90 text-sky-700 hover:bg-sky-100 active:scale-95 transition-all text-xs shadow-sm"><span class="w-2 h-2 rounded-full animate-ping bg-sky-600"></span><span class="font-label-md text-label-md font-semibold text-sky-900">מצב בהיר נקי • Clean Audio</span></button><button class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/90 border border-slate-200 text-slate-700 hover:text-sky-700 hover:bg-white active:scale-95 transition-all text-xs shadow-sm"><span class="material-symbols-outlined text-sm text-sky-600" data-icon="lyrics">lyrics</span><span class="font-label-md text-label-md font-medium">מילים סנכרון</span></button><button class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/90 border border-slate-200 text-slate-700 hover:text-sky-700 hover:bg-white active:scale-95 transition-all text-xs shadow-sm"><span class="material-symbols-outlined text-sm text-sky-600" data-icon="repeat">repeat</span><span class="font-label-md text-label-md font-medium">חזרה A-B</span></button><button class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/90 border border-slate-200 text-slate-700 hover:text-sky-700 hover:bg-white active:scale-95 transition-all text-xs shadow-sm"><span class="material-symbols-outlined text-sm text-sky-600" data-icon="label">label</span><span class="font-label-md text-label-md font-medium">עריכת תגיות</span></button></div></section>
+<!-- Song Metadata & Telemetry Information -->
+<section class="w-full flex flex-col items-center text-center mt-2 mb-2"><div class="flex items-center justify-between w-full px-2"><button class="p-2 text-slate-400 hover:text-rose-600 transition-colors rounded-full hover:bg-slate-100" title="הוסף למועדפים"><span class="material-symbols-outlined text-2xl" data-icon="favorite">favorite</span></button><div class="flex-1 mx-2"><h1 class="font-headline-lg text-slate-900 tracking-tight font-bold drop-shadow-sm">Get Lucky (feat. Pharrell Williams)</h1><p class="font-headline-sm text-headline-sm text-slate-600 font-medium mt-0.5">Daft Punk</p></div><button class="p-2 text-slate-400 hover:text-sky-700 transition-colors rounded-full hover:bg-slate-100" title="הוסף לתור אחר"><span class="material-symbols-outlined text-2xl" data-icon="playlist_add">playlist_add</span></button></div><div class="flex items-center gap-2 mt-2"><span class="font-technical-data text-technical-data px-2.5 py-0.5 rounded-full bg-white text-slate-700 border border-slate-200 font-semibold shadow-sm">3214 kbps • 96.0 kHz</span><span class="font-technical-data text-technical-data px-2.5 py-0.5 rounded-full bg-sky-50 text-sky-700 border border-sky-200 font-bold shadow-sm">DSP Direct Pure Output</span></div></section>
+<!-- Precision Waveform Seeker & Seek Controls -->
+<section class="w-full px-space-xs mt-1"><div class="relative w-full h-8 flex items-center justify-between gap-[2px] cursor-pointer group" title="דילוג לפי צורת גל"><div class="h-3 w-1 rounded-full bg-sky-600"></div><div class="h-5 w-1 rounded-full bg-sky-600"></div><div class="h-6 w-1 rounded-full bg-sky-600"></div><div class="h-7 w-1 rounded-full bg-sky-600"></div><div class="h-4 w-1 rounded-full bg-sky-600"></div><div class="h-6 w-1 rounded-full bg-sky-600"></div><div class="h-8 w-1 rounded-full bg-sky-600"></div><div class="h-5 w-1 rounded-full bg-sky-600"></div><div class="h-7 w-1 rounded-full bg-sky-600"></div><div class="h-6 w-1 rounded-full bg-sky-600"></div><div class="h-4 w-1 rounded-full bg-sky-600"></div><div class="h-7 w-1 rounded-full bg-sky-600"></div><div class="h-8 w-1 rounded-full bg-sky-600"></div><div class="h-5 w-1 rounded-full bg-sky-600"></div><div class="h-6 w-1 rounded-full bg-sky-600"></div><div class="h-8 w-1 rounded-full bg-sky-600"></div><div class="h-7 w-1 rounded-full bg-sky-600"></div><div class="h-5 w-1 rounded-full bg-sky-600"></div><div class="h-6 w-1 rounded-full bg-sky-600"></div><div class="h-7 w-1 rounded-full bg-sky-600"></div><div class="h-9 w-2 rounded-full bg-sky-700 transform scale-110 -my-1 z-20 shadow-md" style="box-shadow: 0 0 12px rgba(2, 132, 199, 0.6);"></div><div class="h-5 w-1 rounded-full bg-slate-300"></div><div class="h-4 w-1 rounded-full bg-slate-300"></div><div class="h-7 w-1 rounded-full bg-slate-300"></div><div class="h-6 w-1 rounded-full bg-slate-300"></div><div class="h-8 w-1 rounded-full bg-slate-300"></div><div class="h-5 w-1 rounded-full bg-slate-300"></div><div class="h-4 w-1 rounded-full bg-slate-300"></div><div class="h-6 w-1 rounded-full bg-slate-300"></div><div class="h-7 w-1 rounded-full bg-slate-300"></div><div class="h-4 w-1 rounded-full bg-slate-300"></div><div class="h-5 w-1 rounded-full bg-slate-300"></div><div class="h-3 w-1 rounded-full bg-slate-300"></div></div><div class="flex items-center justify-between mt-1 text-slate-500 font-technical-data text-technical-data"><span class="text-sky-700 font-bold">02:45</span><button class="px-2.5 py-0.5 rounded-full bg-white text-slate-700 hover:text-sky-700 border border-slate-200 shadow-sm flex items-center gap-1 font-semibold" title="בקרת מהירות וגובה צליל"><span class="material-symbols-outlined text-[12px] text-sky-600" data-icon="speed">speed</span><span>1.00x • נעילת פיץ'</span></button><span class="font-medium text-slate-500">04:08</span></div></section>
+<!-- Master Transport Audio Controls -->
+<section class="w-full flex items-center justify-between px-space-md my-2"><button class="p-2 text-slate-500 hover:text-sky-700 active:scale-90 transition-transform relative rounded-full hover:bg-slate-100" title="ערבב רצועות"><span class="material-symbols-outlined text-2xl" data-icon="shuffle">shuffle</span></button><button class="p-2 text-slate-500 hover:text-sky-700 active:scale-90 transition-transform rounded-full hover:bg-slate-100" title="10 שניות אחורה"><span class="material-symbols-outlined text-2xl" data-icon="replay_10">replay_10</span></button><button class="p-3 text-slate-800 hover:text-sky-700 active:scale-95 transition-transform rounded-full hover:bg-slate-100" title="רצועה קודמת"><span class="material-symbols-outlined text-3xl" data-icon="skip_next">skip_next</span></button><button class="w-16 h-16 rounded-full text-white flex items-center justify-center active:scale-90 transition-all shadow-xl" style="background: linear-gradient(135deg, #0284c7 0%, #0ea5e9 50%, #06b6d4 100%); box-shadow: 0 8px 24px -4px rgba(2, 132, 199, 0.45), 0 0 12px rgba(14, 165, 233, 0.3);" title="השהה"><span class="material-symbols-outlined text-4xl" data-icon="pause" style="font-variation-settings: 'FILL' 1;">pause</span></button><button class="p-3 text-slate-800 hover:text-sky-700 active:scale-95 transition-transform rounded-full hover:bg-slate-100" title="רצועה הבאה"><span class="material-symbols-outlined text-3xl" data-icon="skip_previous">skip_previous</span></button><button class="p-2 text-slate-500 hover:text-sky-700 active:scale-90 transition-transform rounded-full hover:bg-slate-100" title="10 שניות קדימה"><span class="material-symbols-outlined text-2xl" data-icon="forward_10">forward_10</span></button><button class="p-2 text-sky-700 active:scale-90 transition-transform relative rounded-full hover:bg-slate-100" title="חזור על רצועה"><span class="material-symbols-outlined text-2xl" data-icon="repeat">repeat</span><span class="absolute bottom-1 right-1/2 translate-x-1/2 w-1.5 h-1.5 rounded-full bg-sky-600"></span></button></section>
+<!-- Up Next Queue Peek Glass Card -->
+<section class="w-full bg-white/90 border border-slate-200/90 shadow-sm rounded-xl p-2.5 flex items-center justify-between mt-1 mb-2 hover:bg-white hover:shadow-md transition-all cursor-pointer group"><div class="flex items-center gap-space-sm overflow-hidden"><div class="w-9 h-9 rounded-lg bg-slate-100 overflow-hidden flex-shrink-0 border border-slate-200"><img alt="Up next thumb" class="w-full h-full object-cover" data-alt="Monochrome futuristic robotic audio tape visual artwork on square album miniature thumbnail in high contrast dark obsidian style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuABW2DSLec4R5x9xzF1MXENHGe1YxK78HeB7YHa6XKy-GA7HgMESsX--zdAw7IXmA2-EhIQlHVXSgembRVxPM-GQbHJ6DvVQ2wLgHGaBLao5ukcvoH-TbHSHT6ANndUGdszHT5ZqBoIHQf5Thk2RfejSbat1o6f0I5_jHSf8X1B-surm5y6m-TWO9gTctIcBqXMIoq3XW9D-4O6ozJ3PyRS_qEW39Bbeol-DT5PTtbABoWsuT-LFhvx"/></div><div class="flex flex-col text-right overflow-hidden"><span class="font-technical-data text-technical-data text-sky-700 uppercase flex items-center gap-1 font-bold"><span class="material-symbols-outlined text-xs text-sky-600" data-icon="queue_music">queue_music</span>הבא בתור • תור 1</span><span class="font-label-md text-label-md text-slate-800 font-semibold truncate group-hover:text-sky-700 transition-colors">Giorgio by Moroder</span></div></div><div class="flex items-center gap-1 text-slate-500 text-xs flex-shrink-0"><span class="font-technical-data text-technical-data font-semibold text-slate-600">09:05</span><span class="material-symbols-outlined text-lg" data-icon="drag_handle">drag_handle</span></div></section>
+</main>
+<!-- BottomNavBar (JSON Blueprint Translation) -->
+<!-- Contextual state: Currently playing queue resides under "Queues" (תורים) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-space-sm h-16 bg-white/90 backdrop-blur-xl border-t border-slate-200/90 shadow-lg"><button class="flex flex-col items-center justify-center text-slate-500 px-3 py-1 hover:text-sky-700 active:scale-90 transition-transform duration-150"><span class="material-symbols-outlined text-xl" data-icon="music_note">music_note</span><span class="font-label-sm text-label-sm mt-0.5 font-medium">Tracks</span></button><button class="flex flex-col items-center justify-center text-slate-500 px-3 py-1 hover:text-sky-700 active:scale-90 transition-transform duration-150"><span class="material-symbols-outlined text-xl" data-icon="folder_open">folder_open</span><span class="font-label-sm text-label-sm mt-0.5 font-medium">Folders</span></button><button class="flex flex-col items-center justify-center text-sky-700 bg-sky-50 rounded-full px-3 py-1 border border-sky-200 active:scale-90 transition-transform duration-150 font-bold shadow-sm"><span class="material-symbols-outlined text-xl text-sky-600" data-icon="queue_music" style="font-variation-settings: 'FILL' 1;">queue_music</span><span class="font-label-sm text-label-sm mt-0.5 text-sky-800">Queues</span></button><button class="flex flex-col items-center justify-center text-slate-500 px-3 py-1 hover:text-sky-700 active:scale-90 transition-transform duration-150"><span class="material-symbols-outlined text-xl" data-icon="graphic_eq">graphic_eq</span><span class="font-label-sm text-label-sm mt-0.5 font-medium">Equalizer</span></button><button class="flex flex-col items-center justify-center text-slate-500 px-3 py-1 hover:text-sky-700 active:scale-90 transition-transform duration-150"><span class="material-symbols-outlined text-xl" data-icon="tune">tune</span><span class="font-label-sm text-label-sm mt-0.5 font-medium">Settings</span></button></nav>
+<!-- Interactive script for audio scrubber & touch feedback -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Micro-interaction for play/pause toggle simulation
+      const playBtn = document.querySelector('button[title="השהה"]');
+      if (playBtn) {
+        let isPlaying = true;
+        playBtn.addEventListener('click', () => {
+          isPlaying = !isPlaying;
+          const icon = playBtn.querySelector('.material-symbols-outlined');
+          if (icon) {
+            icon.textContent = isPlaying ? 'pause' : 'play_arrow';
+            playBtn.title = isPlaying ? 'השהה' : 'נגן';
+          }
+        });
+      }
+    });
+  </script>
+</body></html>
